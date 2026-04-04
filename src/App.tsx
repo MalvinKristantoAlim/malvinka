@@ -24,9 +24,9 @@ import { PortfolioData } from './types';
 
 export default function App() {
   const DEFAULTS = {
-    profileImage: '/profile.jpeg',
-    anomaniImage: '/anomanfoto.jpeg',
-    raiseImage: '/raisenomani.jpeg',
+    profileImage: '/public/profile.jpeg',
+    anomaniImage: '/public/anomanfoto.jpeg',
+    raiseImage: '/public/raisenomani.jpeg',
   };
 
   const [data] = useState<PortfolioData>(DEFAULTS);
