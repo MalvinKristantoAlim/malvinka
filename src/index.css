@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  
+  --color-obsidian: #050505;
+  --color-emerald-accent: #10b981;
+  --color-emerald-glow: rgba(16, 185, 129, 0.4);
+  --color-emerald-glass: rgba(16, 185, 129, 0.08);
+  --color-emerald-border: rgba(16, 185, 129, 0.15);
+}
+
+@layer base {
+  body {
+    @apply bg-obsidian text-gray-300 font-sans selection:bg-emerald-accent/30 selection:text-emerald-accent overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 2px 2px, rgba(16, 185, 129, 0.03) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-white font-extrabold;
+  }
+}
+
+.ambient-glow {
+  @apply absolute pointer-events-none blur-[150px] rounded-full opacity-20;
+  background: radial-gradient(circle, var(--color-emerald-accent) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.glass {
+  @apply bg-[#0a0a0a]/40 backdrop-blur-[24px] border border-white/5 rounded-[2.5rem] transition-all duration-500;
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7);
+}
+
+.glass-hover {
+  @apply hover:border-emerald-accent/30 hover:bg-[#0d0d0d]/60 hover:shadow-[0_20px_60px_-15px_rgba(16,185,129,0.2)] hover:-translate-y-2;
+}
+
+.nav-glass {
+  @apply bg-obsidian/40 backdrop-blur-[16px] border border-white/5 rounded-2xl;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-emerald-200 to-emerald-500;
+  filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.3));
+}
+
+.glow-emerald {
+  filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.5));
+}
+
+.grid-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(16, 185, 129, 0.08) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-obsidian;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-emerald-accent/10 rounded-full hover:bg-emerald-accent/30 transition-all;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.marquee-container {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
